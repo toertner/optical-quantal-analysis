@@ -1,0 +1,52 @@
+These matlab files were used to perform a quantal analyis on iGluSnFR data from Schaffer collateral boutons (Dürst & Oertner, 2018)
+
+________________________
+ANALYSIS FUNCTIONS
+________________________
+
+
+BinoFit_LowHighCa_noBias(mydata, experiment)
+
+This function is used to analyze data from boutons imaged under 2 condtions (high/low Ca2+).
+mydata is a matlab array, organized in 4 colums per bouton: 
+1) low Ca responses 2) no stim 3) high Ca responses 4) no stim
+experiment=1 analzyes the first 4 columns (data from bouton #1)
+experiment=2 analzyes column 5-8 (data from bouton #2), etc.
+
+
+_________________________
+Simulation of experiments
+_________________________
+
+
+SimGlu
+
+GUI controlling generateFakeData
+
+
+
+generateFakeData(n, p, q, trials, photons)
+
+This function calls BoutonSim to generate a full dataset (high Ca, low Ca,
+and noise) to be analyzed by BinoFit_LowHighCa_noBias
+The purpose is to evalulate how # trials and #photons affect parameter extraction.
+
+
+
+
+BoutonSim(# vesicles, vescular release probaility, unitary response, # trials, #photons)
+BoutonSim(5,0.4,0.8,3000)
+
+This function generates 'fake' data with statistical properties similar to real fluorescence measurements. It takes into account photon shot noise (number of photons collected at baseline) and saturation of iGluSnFR. There is no variability in quantal size!
+
+
+
+
+shotNoise(number of photons)
+
+This function was written to understand how the photon shot noise, which scales with sqrt(detetced photons), affects df/f0 measurements. 
+The insight was that df/fo can be written as (f/f0)-1, making it straightforward to calculate the uncertainty (sum of the relative error in f and the relative error in f0).
+
+
+
+Thomas Oertner, ZMNH Hamburg, Jan 2018
