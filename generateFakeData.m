@@ -28,7 +28,7 @@ end
 myFakeData=zeros(4,trials);
 
 myFakeData(2,:)=BoutonSim(n,0,q,trials,photons);   %noise
-myFakeData(1,:)=BoutonSim(n,p/10,q,trials,photons);  %low Ca
+myFakeData(1,:)=BoutonSim(n,p/6,q,trials,photons);  %low Ca
 myFakeData(4,:)=BoutonSim(n,0,q,trials,photons);  %noise
 myFakeData(3,:)=BoutonSim(n,p,q,trials,photons);  %high Ca
 

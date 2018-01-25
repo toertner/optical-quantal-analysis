@@ -61,6 +61,12 @@ guidata(hObject, handles);
 % UIWAIT makes GluSim wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 global glusim
+glusim.n=6;
+glusim.p=0.8;
+glusim.q=0.9;
+glusim.trials=180;
+glusim.photons=200;
+glusim.analyze=0;
 
 % --- Outputs from this function are returned to the command line.
 function varargout = GluSim_OutputFcn(hObject, eventdata, handles) 
@@ -95,7 +101,6 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-
 function P_Callback(hObject, eventdata, handles)
 % hObject    handle to P (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -115,7 +120,6 @@ function P_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
 
 
 function Q_Callback(hObject, eventdata, handles)
